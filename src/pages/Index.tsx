@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <>
       {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
-      <div className={loaded ? "opacity-100 transition-opacity duration-500" : "opacity-0"}>
+      <div className={`ambient-bg ${loaded ? "opacity-100 transition-opacity duration-500" : "opacity-0"}`}>
         <Navbar />
         <main>
           <Hero />
