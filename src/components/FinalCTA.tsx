@@ -11,7 +11,7 @@ const FinalCTA = () => {
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         className="relative max-w-2xl mx-auto text-center"
       >
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground">

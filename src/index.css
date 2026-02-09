@@ -137,17 +137,28 @@
   box-shadow: 0 4px 40px hsla(225, 50%, 10%, 0.5), 0 0 80px hsla(24, 100%, 61%, 0.03), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
 }
 
-/* About section cards */
-.about-card {
-  background: hsla(225, 35%, 13%, 0.7);
-  border: 1px solid hsla(225, 25%, 25%, 0.4);
-  box-shadow: 0 2px 12px hsla(0, 0%, 0%, 0.15);
+/* About unified card */
+.about-unified {
+  background: linear-gradient(145deg, hsla(225, 40%, 12%, 0.8) 0%, hsla(225, 35%, 9%, 0.9) 100%);
+  border: 1px solid hsla(225, 25%, 22%, 0.4);
+  box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.2), inset 0 1px 0 hsla(0, 0%, 100%, 0.03);
+}
+
+/* How It Works section */
+.how-it-works-bg {
+  background: linear-gradient(180deg, hsl(225, 45%, 7%) 0%, hsl(228, 48%, 9%) 50%, hsl(225, 45%, 7%) 100%);
+}
+
+.hiw-card {
+  background: hsla(225, 40%, 11%, 0.7);
+  border: 1px solid hsla(225, 30%, 22%, 0.5);
+  box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.2), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
   transition: transform 300ms ease, box-shadow 300ms ease;
 }
 
-.about-card:hover {
+.hiw-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px hsla(225, 50%, 15%, 0.3);
+  box-shadow: 0 8px 30px hsla(24, 100%, 61%, 0.08), 0 1px 0 hsla(0, 0%, 100%, 0.05) inset;
 }
 
 /* Custom select dropdown styling */

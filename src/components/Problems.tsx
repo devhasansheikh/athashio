@@ -32,7 +32,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.1, duration: 0.5 },
+    transition: { delay: i * 0.1, duration: 0.55, ease: "easeOut" as const },
   }),
 };
 
@@ -81,7 +81,7 @@ const Problems = () => (
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         className="mt-20"
       >
         <h3 className="font-heading font-bold text-2xl md:text-3xl text-foreground mb-10">
