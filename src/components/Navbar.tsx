@@ -7,21 +7,29 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl">
-      <div className="glass-nav rounded-full px-4 py-2.5 flex items-center justify-between gap-2">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto max-w-2xl">
+      <div className="glass-nav rounded-full px-4 py-2.5 flex items-center gap-6">
         <Link to="/" className="flex-shrink-0">
           <img src={logo} alt="HASH" className="h-8 w-auto" />
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm text-foreground/80 hover:text-foreground transition-colors">
+        <div className="hidden md:flex items-center gap-5">
+          <button onClick={() => { navigate("/"); setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100); }} className="text-sm text-foreground/80 hover:text-foreground transition-colors">
             Home
-          </Link>
-          <Link to="/#services" className="text-sm font-semibold text-foreground hover:text-foreground transition-colors">
+          </button>
+          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm font-semibold text-foreground hover:text-foreground transition-colors">
             Services
-          </Link>
+          </button>
+          <button className="text-sm text-foreground/80 hover:text-foreground transition-colors cursor-default opacity-60">
+            About
+          </button>
         </div>
 
         <button
@@ -40,8 +48,9 @@ const Navbar = () => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden glass-nav rounded-2xl mt-2 p-4 flex flex-col gap-3">
-          <Link to="/" onClick={() => setMobileOpen(false)} className="text-sm text-foreground/80">Home</Link>
-          <Link to="/#services" onClick={() => setMobileOpen(false)} className="text-sm font-semibold text-foreground">Services</Link>
+          <button onClick={() => { setMobileOpen(false); navigate("/"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-sm text-foreground/80 text-left">Home</button>
+          <button onClick={() => { setMobileOpen(false); navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm font-semibold text-foreground text-left">Services</button>
+          <button className="text-sm text-foreground/80 text-left opacity-60">About</button>
           <button
             onClick={() => { setMobileOpen(false); navigate("/qualify"); }}
             className="text-sm px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"

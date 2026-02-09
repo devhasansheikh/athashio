@@ -37,7 +37,7 @@ const Book = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ambient-bg">
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6 pt-24 pb-12">
         <form onSubmit={handleSubmit} className="card-3d rounded-2xl p-8 md:p-10 w-full max-w-lg">
@@ -72,7 +72,7 @@ const Book = () => {
           <button
             type="submit"
             disabled={submitting || !form.full_name || !form.email || !form.whatsapp}
-            className="w-full mt-8 px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-110 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full mt-8 cta-3d px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:brightness-110 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {submitting ? "Submitting..." : "Book Your Free Ops Strategy Call →"}
           </button>

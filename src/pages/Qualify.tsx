@@ -4,12 +4,42 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const questions = [
-  { id: "business_type", label: "What type of business do you run?", type: "text" as const },
-  { id: "team_size", label: "How many people are involved in day-to-day operations?", type: "select" as const, options: ["Just me", "2–5", "6–15", "16–30", "30+"] },
-  { id: "current_tools", label: "Where do you currently track operations, tasks, or numbers?", type: "text" as const },
-  { id: "blind_spot", label: "What's the biggest operational blind spot right now?", type: "textarea" as const },
-  { id: "visibility_goal", label: "What would better visibility help you improve first?", type: "text" as const },
-  { id: "timeline", label: "When would you like to start improving your operations?", type: "select" as const, options: ["As soon as possible", "Within 2 weeks", "Within a month", "Just exploring for now"] },
+  {
+    id: "business_type",
+    label: "What type of business do you run?",
+    type: "select" as const,
+    options: ["Agency / Studio", "Professional Services", "E-commerce / Retail", "SaaS / Tech", "Construction / Trades", "Healthcare", "Education / Training", "Other"],
+  },
+  {
+    id: "team_size",
+    label: "How many people are involved in day-to-day operations?",
+    type: "select" as const,
+    options: ["Just me", "2–5", "6–15", "16–30", "30+"],
+  },
+  {
+    id: "current_tools",
+    label: "Where do you currently track operations, tasks, or numbers?",
+    type: "select" as const,
+    options: ["Spreadsheets (Excel/Google Sheets)", "Project management tool (Asana, Trello, etc.)", "CRM (HubSpot, Salesforce, etc.)", "Pen & paper / memory", "A mix of everything", "We don't really track"],
+  },
+  {
+    id: "blind_spot",
+    label: "What's the biggest operational blind spot right now?",
+    type: "select" as const,
+    options: ["Financial visibility (costs, margins, profitability)", "Task & project tracking", "Team accountability & ownership", "Client follow-ups & pipeline", "Reporting & decision-making data", "Everything feels scattered"],
+  },
+  {
+    id: "visibility_goal",
+    label: "What would better visibility help you improve first?",
+    type: "select" as const,
+    options: ["Revenue & profitability tracking", "Team productivity & accountability", "Client management & retention", "Operational efficiency", "Strategic decision-making", "All of the above"],
+  },
+  {
+    id: "timeline",
+    label: "When would you like to start improving your operations?",
+    type: "select" as const,
+    options: ["As soon as possible", "Within 2 weeks", "Within a month", "Just exploring for now"],
+  },
 ];
 
 const Qualify = () => {
@@ -30,7 +60,7 @@ const Qualify = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col ambient-bg">
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6 pt-24 pb-12">
         <div className="card-3d rounded-2xl p-8 md:p-10 w-full max-w-lg">
@@ -48,42 +78,21 @@ const Qualify = () => {
             {current.label}
           </label>
 
-          {current.type === "text" && (
-            <input
-              className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
-              value={value}
-              onChange={(e) => setForm({ ...form, [current.id]: e.target.value })}
-              onKeyDown={(e) => e.key === "Enter" && handleNext()}
-              autoFocus
-            />
-          )}
-
-          {current.type === "textarea" && (
-            <textarea
-              className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 min-h-[100px]"
-              value={value}
-              onChange={(e) => setForm({ ...form, [current.id]: e.target.value })}
-              autoFocus
-            />
-          )}
-
-          {current.type === "select" && current.options && (
-            <div className="space-y-2">
-              {current.options.map((opt) => (
-                <button
-                  key={opt}
-                  onClick={() => setForm({ ...form, [current.id]: opt })}
-                  className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all duration-200 ${
-                    value === opt
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border bg-secondary/30 text-foreground/70 hover:border-primary/50"
-                  }`}
-                >
-                  {opt}
-                </button>
-              ))}
-            </div>
-          )}
+          <div className="space-y-2">
+            {current.options!.map((opt) => (
+              <button
+                key={opt}
+                onClick={() => setForm({ ...form, [current.id]: opt })}
+                className={`w-full text-left px-4 py-3 rounded-lg border text-sm transition-all duration-200 ${
+                  value === opt
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border bg-secondary/30 text-foreground/70 hover:border-primary/50"
+                }`}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
 
           <div className="flex justify-between mt-8">
             <button
@@ -95,7 +104,7 @@ const Qualify = () => {
             <button
               onClick={handleNext}
               disabled={!value.trim()}
-              className="px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-110 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="cta-3d px-6 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:brightness-110 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {step < questions.length - 1 ? "Next →" : "Continue to Booking →"}
             </button>
