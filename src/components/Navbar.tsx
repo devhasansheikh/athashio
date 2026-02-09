@@ -27,7 +27,7 @@ const Navbar = () => {
           <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm font-semibold text-foreground hover:text-foreground transition-colors">
             Services
           </button>
-          <button className="text-sm text-foreground/80 hover:text-foreground transition-colors cursor-default opacity-60">
+          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("about"), 100); }} className="text-sm text-foreground/80 hover:text-foreground transition-colors">
             About
           </button>
         </div>
@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="md:hidden glass-nav rounded-2xl mt-2 p-4 flex flex-col gap-3">
           <button onClick={() => { setMobileOpen(false); navigate("/"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-sm text-foreground/80 text-left">Home</button>
           <button onClick={() => { setMobileOpen(false); navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm font-semibold text-foreground text-left">Services</button>
-          <button className="text-sm text-foreground/80 text-left opacity-60">About</button>
+          <button onClick={() => { setMobileOpen(false); navigate("/"); setTimeout(() => scrollTo("about"), 100); }} className="text-sm text-foreground/80 text-left">About</button>
           <button
             onClick={() => { setMobileOpen(false); navigate("/qualify"); }}
             className="text-sm px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
