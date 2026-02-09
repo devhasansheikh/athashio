@@ -21,13 +21,13 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-5">
-          <button onClick={() => { navigate("/"); setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100); }} className="text-sm text-foreground/80 hover:text-foreground transition-colors">
+          <button onClick={() => { navigate("/"); setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100); }} className="text-sm text-foreground/60 hover:text-foreground transition-colors">
             Home
           </button>
-          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm font-semibold text-foreground hover:text-foreground transition-colors">
+          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("services"), 100); }} className="text-sm text-foreground/60 hover:text-foreground transition-colors">
             Services
           </button>
-          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("about"), 100); }} className="text-sm text-foreground/80 hover:text-foreground transition-colors">
+          <button onClick={() => { navigate("/"); setTimeout(() => scrollTo("about"), 100); }} className="text-sm text-foreground/60 hover:text-foreground transition-colors">
             About
           </button>
         </div>

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const FinalCTA = () => {
@@ -6,7 +7,13 @@ const FinalCTA = () => {
   return (
     <section className="relative py-24 md:py-32 px-6">
       <div className="absolute inset-0 final-cta-glow pointer-events-none" />
-      <div className="relative max-w-2xl mx-auto text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.5 }}
+        className="relative max-w-2xl mx-auto text-center"
+      >
         <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground">
           Ready to stop losing money to unclear operations?
         </h2>
@@ -22,7 +29,7 @@ const FinalCTA = () => {
         <p className="text-muted-foreground text-sm mt-5">
           No upfront payment. Just clarity on what's leaking and how to fix it.
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };

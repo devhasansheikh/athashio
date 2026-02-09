@@ -55,14 +55,15 @@ const Book = () => {
               <select
                 value={form.revenue_range}
                 onChange={(e) => update("revenue_range", e.target.value)}
-                className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                className="w-full bg-secondary/50 border border-border rounded-lg px-4 py-3 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 appearance-none"
+                style={{ colorScheme: "dark" }}
               >
-                <option value="">Select...</option>
-                <option>Under $100K/year</option>
-                <option>$100K–$500K/year</option>
-                <option>$500K–$1M/year</option>
-                <option>$1M–$5M/year</option>
-                <option>$5M+/year</option>
+                <option value="" className="bg-card text-foreground">Select...</option>
+                <option className="bg-card text-foreground">Under $100K/year</option>
+                <option className="bg-card text-foreground">$100K–$500K/year</option>
+                <option className="bg-card text-foreground">$500K–$1M/year</option>
+                <option className="bg-card text-foreground">$1M–$5M/year</option>
+                <option className="bg-card text-foreground">$5M+/year</option>
               </select>
             </div>
 
