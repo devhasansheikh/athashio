@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const Book = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const qualifyData = (location.state as Record<string, string>) || {};
 
   const [form, setForm] = useState({
@@ -32,7 +33,7 @@ const Book = () => {
 
     setTimeout(() => {
       setSubmitting(false);
-      toast.success("Your slot request is received. Our team will contact you shortly.");
+      navigate("/thank-you");
     }, 800);
   };
 

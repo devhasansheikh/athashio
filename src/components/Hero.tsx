@@ -5,17 +5,17 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="hero-glow relative pt-32 pb-20 md:pt-40 md:pb-28 px-6">
+    <section className="hero-glow relative min-h-[calc(100vh-80px)] flex items-center px-6">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-bold text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4rem] uppercase leading-tight tracking-tight"
+          className="font-heading font-semibold text-[1.75rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.15] tracking-tight"
         >
           <span className="text-foreground">YOUR BUSINESS ISN'T DISORGANIZED</span>
           <br />
-          <span className="text-primary">— YOUR SYSTEMS ARE</span>
+          <span className="text-primary">YOUR SYSTEMS ARE</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
