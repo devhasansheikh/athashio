@@ -11,11 +11,11 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-semibold text-[1.75rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.15] tracking-tight"
+          className="font-heading text-[1.65rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.25] sm:leading-[1.3] tracking-tight"
         >
-          <span className="text-foreground">YOUR BUSINESS ISN'T DISORGANIZED</span>
-          <br />
-          <span className="text-primary">YOUR SYSTEMS ARE</span>
+          <span className="text-foreground font-normal">YOUR BUSINESS ISN'T DISORGANIZED</span>
+          <br className="block" />
+          <span className="text-primary font-bold mt-1 inline-block">YOUR SYSTEMS ARE</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}
