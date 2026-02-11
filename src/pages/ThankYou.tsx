@@ -16,15 +16,15 @@ const ThankYou = () => {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center max-w-lg"
         >
-          <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6 leading-tight">
+          <p className="font-heading font-bold text-[1.7rem] md:text-[2.1rem] leading-snug mb-10 text-[hsl(30,90%,85%)]">
+            Most businesses never pause to fix operational blind spots — and they quietly lose because of it.<br className="hidden md:block" />
+            <span className="text-foreground/95 mt-1 inline-block">You operate differently.</span>
+          </p>
+          <h1 className="font-heading font-bold text-xl md:text-2xl text-foreground/90 mb-4 leading-tight">
             Thank You. We'll Reach Out Within 24 Hours.
           </h1>
-          <p className="text-foreground/70 text-base md:text-lg mb-8 leading-relaxed">
+          <p className="text-foreground/60 text-base md:text-lg mb-10 leading-relaxed">
             Our team will review your details and get back to you shortly.
-          </p>
-          <p className="text-primary/80 text-sm md:text-base italic mb-10 leading-relaxed">
-            Most businesses never pause to fix operational blind spots.<br />
-            You just did.
           </p>
           <button
             onClick={() => navigate("/")}
