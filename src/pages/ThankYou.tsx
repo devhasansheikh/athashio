@@ -17,14 +17,14 @@ const ThankYou = () => {
           className="text-center max-w-lg"
         >
           <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-6 leading-tight">
-            You're In. We'll Review &amp; Get Back Within 24 Hours.
+            Thank You. We'll Reach Out Within 24 Hours.
           </h1>
-          <p className="text-foreground/70 text-base md:text-lg mb-4 leading-relaxed">
-            Our team is reviewing your details.<br />
-            You'll receive a response at your provided email within 24 hours.
+          <p className="text-foreground/70 text-base md:text-lg mb-8 leading-relaxed">
+            Our team will review your details and get back to you shortly.
           </p>
-          <p className="text-muted-foreground text-sm mb-10">
-            If your operations qualify, we'll outline the exact next steps.
+          <p className="text-primary/80 text-sm md:text-base italic mb-10 leading-relaxed">
+            Most businesses never pause to fix operational blind spots.<br />
+            You just did.
           </p>
           <button
             onClick={() => navigate("/")}
