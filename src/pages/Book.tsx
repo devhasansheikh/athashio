@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const WEB3FORMS_ACCESS_KEY = "c9720880-a770-4081-9097-ba92a36689e9";
 
 const Book = () => {
   const location = useLocation();
@@ -18,23 +19,56 @@ const Book = () => {
     primary_goal: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const update = (key: string, val: string) => setForm({ ...form, [key]: val });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.full_name || !form.email || !form.whatsapp) return;
 
     setSubmitting(true);
+    setError("");
 
-    // Data ready for Supabase integration
-    const payload = { ...qualifyData, ...form };
-    console.log("Booking payload:", payload);
+    try {
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: "New HASH Ops Strategy Call Submission",
+        botcheck: "",
+        from_name: form.full_name,
+        "Full Name": form.full_name,
+        Email: form.email,
+        "WhatsApp Number": form.whatsapp,
+        "Current Tools/Dashboards": form.dashboards || "Not provided",
+        "Revenue Range": form.revenue_range || "Not provided",
+        "Primary Goal": form.primary_goal || "Not provided",
+        // Qualify step data
+        ...(qualifyData.business_type && { "Business Type": qualifyData.business_type }),
+        ...(qualifyData.team_size && { "Team Size": qualifyData.team_size }),
+        ...(qualifyData.current_tools && { "Current Tools": qualifyData.current_tools }),
+        ...(qualifyData.blind_spot && { "Blind Spot": qualifyData.blind_spot }),
+        ...(qualifyData.visibility_goal && { "Visibility Goal": qualifyData.visibility_goal }),
+        ...(qualifyData.timeline && { Timeline: qualifyData.timeline }),
+      };
 
-    setTimeout(() => {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        navigate("/thank-you");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
       setSubmitting(false);
-      navigate("/thank-you");
-    }, 800);
+    }
   };
 
   return (
@@ -71,6 +105,8 @@ const Book = () => {
             <Field label="What's your primary goal with HASH Ops?" value={form.primary_goal} onChange={(v) => update("primary_goal", v)} textarea />
           </div>
 
+          <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
           <button
             type="submit"
             disabled={submitting || !form.full_name || !form.email || !form.whatsapp}
@@ -78,6 +114,9 @@ const Book = () => {
           >
             {submitting ? "Submitting..." : "Book Your Free Ops Strategy Call →"}
           </button>
+          {error && (
+            <p className="text-red-400 text-xs text-center mt-3">{error}</p>
+          )}
           <p className="text-muted-foreground text-xs text-center mt-3">
             No upfront payment. Just clarity on what's leaking and how to fix it.
           </p>
@@ -87,6 +126,7 @@ const Book = () => {
     </div>
   );
 };
+
 
 const Field = ({
   label, value, onChange, type = "text", textarea = false,
