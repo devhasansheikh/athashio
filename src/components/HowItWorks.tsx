@@ -43,58 +43,84 @@ const HowItWorks = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-14"
+          className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground mb-16"
         >
           How It Works
         </motion.h2>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Connector line anchored to pill top area (desktop only) */}
-          <svg
-            className="hidden md:block absolute inset-0 w-full h-full z-0 pointer-events-none"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="connectorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="hsl(24 100% 61%)" stopOpacity="0" />
-                <stop offset="15%" stopColor="hsl(24 100% 61%)" stopOpacity={hoveredIndex !== null ? 0.5 : 0.25} />
-                <stop offset="50%" stopColor="hsl(24 100% 61%)" stopOpacity={hoveredIndex !== null ? 0.6 : 0.3} />
-                <stop offset="85%" stopColor="hsl(24 100% 61%)" stopOpacity={hoveredIndex !== null ? 0.5 : 0.25} />
-                <stop offset="100%" stopColor="hsl(24 100% 61%)" stopOpacity="0" />
-              </linearGradient>
-              {/* Glow filter */}
-              <filter id="connectorGlow">
-                <feGaussianBlur stdDeviation="2" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-            {/* Main line at ~40px from top (where pills sit) */}
-            <line
-              x1="16.6%"
-              y1="40"
-              x2="83.3%"
-              y2="40"
-              stroke="url(#connectorGrad)"
-              strokeWidth="1.5"
-              filter={hoveredIndex !== null ? "url(#connectorGlow)" : undefined}
-              style={{ transition: "all 0.4s ease" }}
+        {/* Desktop layout with connector */}
+        <div className="hidden md:block relative">
+          {/* Connector line row - sits at pill level */}
+          <div className="relative h-8 mb-0">
+            {/* Horizontal line spanning between pill centers */}
+            <div
+              className="absolute top-1/2 -translate-y-1/2 h-[2px] transition-all duration-500"
+              style={{
+                left: "calc(100% / 6)",
+                right: "calc(100% / 6)",
+                background: `linear-gradient(90deg, 
+                  hsla(24, 100%, 61%, ${hoveredIndex === 0 ? 0.7 : 0.3}) 0%, 
+                  hsla(24, 100%, 61%, ${hoveredIndex !== null ? 0.5 : 0.25}) 50%, 
+                  hsla(24, 100%, 61%, ${hoveredIndex === 2 ? 0.7 : 0.3}) 100%)`,
+                boxShadow: hoveredIndex !== null ? "0 0 8px hsla(24, 100%, 61%, 0.3)" : "none",
+              }}
             />
             {/* Dots at each card center */}
-            {[16.6, 50, 83.3].map((cx, i) => (
-              <circle
+            {[0, 1, 2].map((i) => (
+              <div
                 key={i}
-                cx={`${cx}%`}
-                cy="40"
-                r={hoveredIndex === i ? 4 : 2.5}
-                fill={hoveredIndex === i ? "hsl(24 100% 61%)" : "hsl(24 100% 61% / 0.4)"}
-                style={{ transition: "all 0.3s ease" }}
+                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full transition-all duration-300"
+                style={{
+                  left: `calc(${(2 * i + 1)} * 100% / 6)`,
+                  width: hoveredIndex === i ? 10 : 6,
+                  height: hoveredIndex === i ? 10 : 6,
+                  background: hoveredIndex === i
+                    ? "hsl(24, 100%, 61%)"
+                    : "hsla(24, 100%, 61%, 0.4)",
+                  boxShadow: hoveredIndex === i ? "0 0 10px hsla(24, 100%, 61%, 0.5)" : "none",
+                }}
               />
             ))}
-          </svg>
+          </div>
 
+          {/* Cards row */}
+          <div className="grid grid-cols-3 gap-6">
+            {steps.map((s, i) => (
+              <motion.div
+                key={s.num}
+                custom={i}
+                variants={cardFade}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="hiw-card rounded-2xl p-8 text-center"
+                onMouseEnter={() => setHoveredIndex(i)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                <span
+                  className="inline-block text-sm font-bold px-4 py-1 rounded-full mb-5 transition-all duration-300"
+                  style={{
+                    background: hoveredIndex === i
+                      ? "hsla(24, 100%, 61%, 0.25)"
+                      : "hsla(24, 100%, 61%, 0.15)",
+                    color: "hsl(24, 100%, 61%)",
+                    boxShadow: hoveredIndex === i
+                      ? "0 0 12px hsla(24, 100%, 61%, 0.3)"
+                      : "none",
+                  }}
+                >
+                  {s.num}
+                </span>
+                <s.icon className="w-7 h-7 text-primary/80 mx-auto mb-4" strokeWidth={1.5} />
+                <h3 className="font-heading font-semibold text-foreground text-xl mt-1 mb-3">{s.label}</h3>
+                <p className="text-base text-foreground/70 leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile layout - stacked, no connector */}
+        <div className="md:hidden grid grid-cols-1 gap-6">
           {steps.map((s, i) => (
             <motion.div
               key={s.num}
@@ -103,21 +129,13 @@ const HowItWorks = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              className="hiw-card rounded-2xl p-8 text-center relative z-10"
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
+              className="hiw-card rounded-2xl p-8 text-center"
             >
-              {/* Orange pill number */}
               <span
-                className="inline-block text-sm font-bold px-4 py-1 rounded-full mb-5 transition-all duration-300"
+                className="inline-block text-sm font-bold px-4 py-1 rounded-full mb-5"
                 style={{
-                  background: hoveredIndex === i
-                    ? "hsl(24 100% 61% / 0.25)"
-                    : "hsl(24 100% 61% / 0.15)",
-                  color: "hsl(24 100% 61%)",
-                  boxShadow: hoveredIndex === i
-                    ? "0 0 12px hsl(24 100% 61% / 0.3)"
-                    : "none",
+                  background: "hsla(24, 100%, 61%, 0.15)",
+                  color: "hsl(24, 100%, 61%)",
                 }}
               >
                 {s.num}
