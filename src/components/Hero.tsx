@@ -11,7 +11,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-bold text-[1.65rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.15] sm:leading-[1.18] tracking-tight"
+          className="font-heading font-bold text-[1.75rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.15] sm:leading-[1.18] tracking-tight"
         >
           <span className="text-foreground">YOUR BUSINESS ISN'T DISORGANIZED</span>
           <br className="block" />
