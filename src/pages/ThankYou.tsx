@@ -16,7 +16,7 @@ const ThankYou = () => {
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center max-w-lg"
         >
-          <p className="text-[1.1rem] md:text-[1.3rem] leading-relaxed mb-10 text-[hsl(30,80%,75%)]">
+          <p className="text-[1.1rem] md:text-[1.3rem] leading-relaxed mb-10 text-primary">
             Most growing businesses quietly lose up to 30% of revenue to operational inefficiencies—you've taken the first step to start taking that back.
           </p>
           <h1 className="font-heading font-bold text-xl md:text-2xl text-foreground/90 mb-10 leading-tight">
