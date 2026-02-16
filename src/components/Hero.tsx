@@ -5,13 +5,13 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="hero-glow relative min-h-[calc(100vh-80px)] flex items-center px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="hero-glow relative min-h-[calc(100vh-120px)] flex items-center px-6 py-16 md:py-20">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-bold text-[1.75rem] sm:text-4xl md:text-[3.25rem] lg:text-[3.75rem] uppercase leading-[1.15] sm:leading-[1.18] tracking-tight"
+          className="font-heading font-bold text-[1.85rem] sm:text-4xl md:text-[3.75rem] lg:text-[4.25rem] uppercase leading-[1.13] sm:leading-[1.15] tracking-tight"
         >
           <span className="text-foreground">YOUR BUSINESS ISN'T DISORGANIZED</span>
           <br className="block" />
@@ -21,7 +21,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="font-subheading text-lg md:text-xl lg:text-2xl text-foreground/80 mt-6 max-w-3xl mx-auto leading-relaxed"
+          className="font-subheading text-xl md:text-2xl lg:text-[1.7rem] text-foreground/80 mt-6 max-w-3xl mx-auto leading-relaxed"
         >
           HASH Ops turns scattered data, manual tracking, and unclear ownership into one structured operating system for SMEs.
         </motion.p>
