@@ -36,7 +36,7 @@ const HowItWorks = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="how-it-works-bg py-24 md:py-32 px-6">
+    <section className="how-it-works-bg py-20 md:py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -50,9 +50,7 @@ const HowItWorks = () => {
 
         {/* Desktop layout with connector */}
         <div className="hidden md:block relative">
-          {/* Connector line row - sits at pill level */}
           <div className="relative h-8 mb-0">
-            {/* Horizontal line spanning between pill centers */}
             <div
               className="absolute top-1/2 -translate-y-1/2 h-[2px] transition-all duration-500"
               style={{
@@ -65,7 +63,6 @@ const HowItWorks = () => {
                 boxShadow: hoveredIndex !== null ? "0 0 8px hsla(24, 100%, 61%, 0.3)" : "none",
               }}
             />
-            {/* Dots at each card center */}
             {[0, 1, 2].map((i) => (
               <div
                 key={i}
@@ -83,7 +80,6 @@ const HowItWorks = () => {
             ))}
           </div>
 
-          {/* Cards row */}
           <div className="grid grid-cols-3 gap-6">
             {steps.map((s, i) => (
               <motion.div
@@ -93,7 +89,7 @@ const HowItWorks = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className="hiw-card rounded-2xl p-8 text-center"
+                className="impact-card rounded-2xl p-8 text-center"
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -111,7 +107,7 @@ const HowItWorks = () => {
                 >
                   {s.num}
                 </span>
-                <s.icon className="w-7 h-7 text-primary/80 mx-auto mb-4" strokeWidth={1.5} />
+                <s.icon className="w-7 h-7 text-primary mx-auto mb-4" strokeWidth={1.5} />
                 <h3 className="font-heading font-semibold text-foreground text-xl mt-1 mb-3">{s.label}</h3>
                 <p className="text-base text-foreground/70 leading-relaxed">{s.desc}</p>
               </motion.div>
@@ -119,7 +115,7 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Mobile layout - stacked, no connector */}
+        {/* Mobile layout */}
         <div className="md:hidden grid grid-cols-1 gap-6">
           {steps.map((s, i) => (
             <motion.div
@@ -129,7 +125,7 @@ const HowItWorks = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              className="hiw-card rounded-2xl p-8 text-center"
+              className="impact-card rounded-2xl p-8 text-center"
             >
               <span
                 className="inline-block text-sm font-bold px-4 py-1 rounded-full mb-5"
@@ -140,7 +136,7 @@ const HowItWorks = () => {
               >
                 {s.num}
               </span>
-              <s.icon className="w-7 h-7 text-primary/80 mx-auto mb-4" strokeWidth={1.5} />
+              <s.icon className="w-7 h-7 text-primary mx-auto mb-4" strokeWidth={1.5} />
               <h3 className="font-heading font-semibold text-foreground text-xl mt-1 mb-3">{s.label}</h3>
               <p className="text-base text-foreground/70 leading-relaxed">{s.desc}</p>
             </motion.div>
