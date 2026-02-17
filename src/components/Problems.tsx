@@ -4,25 +4,21 @@ import { Clock, DollarSign, PhoneOff, UserCog } from "lucide-react";
 const problems = [
   {
     icon: Clock,
-    iconColor: "text-sky-400/80",
     title: "Delayed Decisions = Lost Revenue",
     desc: "When reporting isn't real-time, opportunities are already gone by the time you see the numbers.",
   },
   {
     icon: DollarSign,
-    iconColor: "text-rose-400/80",
     title: "Work Happens, Money Doesn't Get Tracked",
     desc: "Projects move forward, but costs, margins, and profitability stay unclear.",
   },
   {
     icon: PhoneOff,
-    iconColor: "text-violet-400/80",
     title: "Follow-ups Fall Through",
     desc: "Missed follow-ups quietly turn into lost deals and unpaid work.",
   },
   {
     icon: UserCog,
-    iconColor: "text-amber-400/70",
     title: "Founder Time Becomes the Safety Net",
     desc: "When systems aren't clear, your time fills the gaps — at the cost of growth.",
   },
@@ -37,7 +33,7 @@ const fadeUp = {
 };
 
 const Problems = () => (
-  <section id="services" className="py-24 md:py-32 px-6">
+  <section id="services" className="py-20 md:py-28 px-6">
     <div className="max-w-5xl mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -67,9 +63,9 @@ const Problems = () => (
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="card-3d rounded-xl p-7 text-left"
+            className="impact-card rounded-xl p-7 text-left"
           >
-            <p.icon className={`w-6 h-6 ${p.iconColor} mb-4`} strokeWidth={1.5} />
+            <p.icon className="w-6 h-6 text-primary mb-4" strokeWidth={1.5} />
             <h3 className="font-heading font-semibold text-foreground text-lg mb-2">{p.title}</h3>
             <p className="text-base text-foreground/70 leading-relaxed">{p.desc}</p>
           </motion.div>
@@ -93,7 +89,6 @@ const Problems = () => (
             <span className="text-sm text-muted-foreground font-subheading uppercase tracking-wider">System Overview — Live</span>
           </div>
 
-          {/* Dashboard-style panels */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
             {[
               { label: "Revenue Pipeline", value: "AED 1.2M", sub: "12 active deals" },
@@ -108,7 +103,6 @@ const Problems = () => (
             ))}
           </div>
 
-          {/* Table-style rows */}
           <div className="space-y-2">
             {[
               { project: "Client Onboarding — Al Fahim", status: "In Progress", owner: "Ops Lead", health: "bg-emerald-500/20 text-emerald-400" },
