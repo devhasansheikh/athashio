@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 225 45% 7%;
+    --background: 222 47% 9%;
     --foreground: 0 0% 95%;
 
-    --card: 225 40% 11%;
+    --card: 222 42% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 225 40% 11%;
+    --popover: 222 42% 12%;
     --popover-foreground: 0 0% 95%;
 
     --primary: 24 100% 61%;
     --primary-foreground: 225 45% 7%;
 
-    --secondary: 225 30% 15%;
+    --secondary: 222 32% 16%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 225 30% 14%;
-    --muted-foreground: 225 15% 55%;
+    --muted: 222 32% 15%;
+    --muted-foreground: 222 15% 55%;
 
     --accent: 24 100% 61%;
     --accent-foreground: 225 45% 7%;
@@ -28,19 +28,19 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 225 30% 18%;
-    --input: 225 30% 18%;
+    --border: 222 30% 19%;
+    --input: 222 30% 19%;
     --ring: 24 100% 61%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 225 45% 7%;
+    --sidebar-background: 222 47% 9%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 24 100% 61%;
     --sidebar-primary-foreground: 225 45% 7%;
-    --sidebar-accent: 225 30% 15%;
+    --sidebar-accent: 222 32% 16%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 225 30% 18%;
+    --sidebar-border: 222 30% 19%;
     --sidebar-ring: 24 100% 61%;
   }
 }
@@ -88,7 +88,7 @@
 }
 
 .ambient-bg {
-  background: linear-gradient(160deg, hsl(225, 45%, 7%) 0%, hsl(225, 50%, 10%) 40%, hsl(230, 45%, 8%) 70%, hsl(220, 40%, 6%) 100%);
+  background: linear-gradient(160deg, hsl(222, 47%, 9%) 0%, hsl(222, 50%, 12%) 40%, hsl(225, 45%, 10%) 70%, hsl(220, 42%, 8%) 100%);
   background-size: 200% 200%;
   animation: ambientShift 20s ease-in-out infinite;
 }
@@ -117,15 +117,17 @@
 
 /* Impact cards */
 .impact-card {
-  background: hsla(225, 40%, 11%, 0.6);
-  border: 1px solid hsla(225, 30%, 22%, 0.5);
-  box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.25), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  background: hsla(222, 42%, 12%, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsla(222, 30%, 22%, 0.35);
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .impact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 36px hsla(24, 100%, 61%, 0.1), 0 0 60px hsla(225, 50%, 20%, 0.15), 0 1px 0 hsla(0, 0%, 100%, 0.05) inset;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px hsla(24, 100%, 61%, 0.08), 0 2px 12px hsla(0, 0%, 0%, 0.15);
 }
 
 /* 3D CTA button */
