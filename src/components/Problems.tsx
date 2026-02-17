@@ -33,7 +33,7 @@ const fadeUp = {
 };
 
 const Problems = () => (
-  <section id="services" className="py-20 md:py-28 px-6">
+  <section id="services" className="py-20 md:py-28 px-6 md:px-20 lg:px-[100px]">
     <div className="max-w-5xl mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}

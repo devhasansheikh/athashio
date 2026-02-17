@@ -17,7 +17,7 @@ const cards = [
   {
     icon: Brain,
     heading: "Decisions",
-    stat: null,
+    stat: "10x",
     body: "Make faster decisions with real operational data, not gut feeling. AI that turns day-to-day activity into clear, confident next moves.",
   },
 ];
@@ -32,18 +32,18 @@ const fadeUp = {
 };
 
 const Results = () => (
-  <section className="py-20 md:py-28 px-6">
+  <section className="px-6 md:px-20 lg:px-[100px]" style={{ paddingTop: '120px', paddingBottom: '60px' }}>
     <div className="max-w-7xl mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5 }}
-        className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-10"
+        className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-[60px]"
       >
         Impact of our software for your company
       </motion.h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
         {cards.map((c, i) => (
           <motion.div
             key={c.heading}
@@ -52,18 +52,20 @@ const Results = () => (
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="impact-card rounded-2xl p-7 md:p-8 flex flex-col items-center text-center justify-center"
+            className="result-card rounded-2xl w-full max-w-[300px] flex flex-col items-center text-center"
+            style={{ padding: '28px', borderRadius: '16px' }}
           >
-            <c.icon className="w-6 h-6 text-primary mb-4" strokeWidth={1.5} />
-            {c.stat && (
-              <p className="font-heading font-bold text-primary text-3xl md:text-4xl mb-2">
-                {c.stat}
-              </p>
-            )}
-            <h3 className="font-heading font-semibold text-foreground text-base mb-2">
+            <c.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+            <div className="h-4" />
+            <p className="font-heading font-bold text-primary text-[1.65rem] md:text-[1.85rem]">
+              {c.stat}
+            </p>
+            <div className="h-3" />
+            <h3 className="font-heading font-semibold text-foreground text-base">
               {c.heading}
             </h3>
-            <p className="text-foreground/60 text-[0.9rem] leading-relaxed">
+            <div className="h-3" />
+            <p className="text-foreground/60 text-[0.85rem] leading-relaxed">
               {c.body}
             </p>
           </motion.div>

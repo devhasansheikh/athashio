@@ -5,8 +5,8 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="hero-glow relative min-h-[calc(100vh-120px)] flex items-center px-6 py-16 md:py-20">
-      <div className="max-w-5xl mx-auto text-center">
+    <section className="hero-glow relative flex items-center justify-center px-6 md:px-20 lg:px-[100px]" style={{ paddingTop: '200px', paddingBottom: '200px' }}>
+      <div className="max-w-[800px] mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
