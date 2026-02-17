@@ -6,7 +6,7 @@ const cards = [
     icon: DollarSign,
     heading: "Cost Reduction",
     stat: "50%",
-    body: "Missed follow-ups, duplicated work, delayed approvals, and poor visibility quietly cost thousands every year. We remove those gaps by design & automation, helping founders reclaim time, money, and momentum without adding complexity.",
+    body: "Operational gaps quietly drain thousands each year. We eliminate them by design & automation, so founders regain time, money, and control.",
   },
   {
     icon: Zap,
@@ -39,11 +39,12 @@ const Results = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.5 }}
-        className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-[60px]"
+        className="font-heading font-bold text-foreground mb-[60px]"
+        style={{ fontSize: 'clamp(1.75rem, 3vw, 2.65rem)' }}
       >
-        Impact of our software for your company
+        Impact of our service for your company
       </motion.h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
         {cards.map((c, i) => (
           <motion.div
             key={c.heading}
@@ -52,20 +53,20 @@ const Results = () => (
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="result-card rounded-2xl w-full max-w-[300px] flex flex-col items-center text-center"
-            style={{ padding: '28px', borderRadius: '16px' }}
+            className="impact-card w-full flex flex-col items-center text-center"
+            style={{ maxWidth: '290px', minHeight: '260px', padding: '24px', borderRadius: '16px' }}
           >
             <c.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
-            <div className="h-4" />
-            <p className="font-heading font-bold text-primary text-[1.65rem] md:text-[1.85rem]">
+            <div style={{ height: '14px' }} />
+            <p className="font-heading font-bold text-primary" style={{ fontSize: '1.5rem' }}>
               {c.stat}
             </p>
-            <div className="h-3" />
-            <h3 className="font-heading font-semibold text-foreground text-base">
+            <div style={{ height: '10px' }} />
+            <h3 className="font-heading font-semibold text-foreground" style={{ fontSize: '1.05rem' }}>
               {c.heading}
             </h3>
-            <div className="h-3" />
-            <p className="text-foreground/60 text-[0.85rem] leading-relaxed">
+            <div style={{ height: '10px' }} />
+            <p className="text-foreground/60" style={{ fontSize: '0.82rem', lineHeight: '1.5' }}>
               {c.body}
             </p>
           </motion.div>
