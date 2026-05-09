@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 222 47% 9%;
+    --background: 0 0% 2%;
     --foreground: 0 0% 95%;
 
-    --card: 222 42% 12%;
+    --card: 0 0% 5%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 222 42% 12%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 95%;
 
     --primary: 24 100% 61%;
@@ -34,7 +34,7 @@
 
     --radius: 0.75rem;
 
-    --sidebar-background: 222 47% 9%;
+    --sidebar-background: 0 0% 2%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 24 100% 61%;
     --sidebar-primary-foreground: 225 45% 7%;
@@ -88,14 +88,14 @@
 }
 
 .ambient-bg {
-  background: linear-gradient(160deg, hsl(222, 47%, 9%) 0%, hsl(222, 50%, 12%) 40%, hsl(225, 45%, 10%) 70%, hsl(220, 42%, 8%) 100%);
+  background: linear-gradient(160deg, hsl(0, 0%, 2%) 0%, hsl(0, 0%, 4%) 40%, hsl(0, 0%, 3%) 70%, hsl(0, 0%, 1%) 100%);
   background-size: 200% 200%;
   animation: ambientShift 20s ease-in-out infinite;
 }
 
 /* Glass effect for navbar */
 .glass-nav {
-  background: hsla(225, 40%, 11%, 0.75);
+  background: hsla(0, 0%, 5%, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid hsla(225, 30%, 25%, 0.4);
@@ -104,7 +104,7 @@
 
 /* Card 3D depth */
 .card-3d {
-  background: hsla(225, 40%, 11%, 0.6);
+  background: hsla(0, 0%, 5%, 0.6);
   border: 1px solid hsla(225, 30%, 22%, 0.5);
   box-shadow: 0 4px 20px hsla(0, 0%, 0%, 0.2), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
   transition: transform 300ms ease, box-shadow 300ms ease;
@@ -163,24 +163,24 @@
 
 /* HASH Ops System™ section bg */
 .hashops-system-bg {
-  background: linear-gradient(135deg, hsla(225, 45%, 12%, 0.9) 0%, hsla(225, 40%, 9%, 0.9) 100%);
+  background: linear-gradient(135deg, hsla(0, 0%, 6%, 0.9) 0%, hsla(0, 0%, 3%, 0.9) 100%);
   box-shadow: 0 4px 40px hsla(225, 50%, 10%, 0.5), 0 0 80px hsla(24, 100%, 61%, 0.03), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
 }
 
 /* About unified card */
 .about-unified {
-  background: linear-gradient(145deg, hsla(225, 40%, 12%, 0.8) 0%, hsla(225, 35%, 9%, 0.9) 100%);
+  background: linear-gradient(145deg, hsla(0, 0%, 6%, 0.8) 0%, hsla(0, 0%, 3%, 0.9) 100%);
   border: 1px solid hsla(225, 25%, 22%, 0.4);
   box-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.2), inset 0 1px 0 hsla(0, 0%, 100%, 0.03);
 }
 
 /* How It Works section */
 .how-it-works-bg {
-  background: linear-gradient(180deg, hsl(225, 45%, 7%) 0%, hsl(228, 48%, 9%) 50%, hsl(225, 45%, 7%) 100%);
+  background: linear-gradient(180deg, hsl(0, 0%, 1%) 0%, hsl(0, 0%, 3%) 50%, hsl(0, 0%, 1%) 100%);
 }
 
 .hiw-card {
-  background: hsla(225, 40%, 11%, 0.7);
+  background: hsla(0, 0%, 5%, 0.7);
   border: 1px solid hsla(225, 30%, 22%, 0.5);
   box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.2), 0 1px 0 hsla(0, 0%, 100%, 0.03) inset;
   transition: transform 300ms ease, box-shadow 300ms ease;
@@ -193,6 +193,6 @@
 
 /* Custom select dropdown styling */
 select option {
-  background: hsl(225, 40%, 11%);
+  background: hsl(0, 0%, 5%);
   color: hsl(0, 0%, 95%);
 }
