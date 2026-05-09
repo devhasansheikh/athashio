@@ -37,8 +37,8 @@ const Footer = () => (
             <Mail className="w-5 h-5 text-primary shrink-0" />
             <div>
               <span className="text-xs text-muted-foreground uppercase tracking-wide block">Email</span>
-              <a href="mailto:info@athash.io" className="text-sm text-foreground/80 hover:text-primary transition-colors">
-                info@athash.io
+              <a href="mailto:info@hashops.io" className="text-sm text-foreground/80 hover:text-primary transition-colors">
+                info@hashops.io
               </a>
             </div>
           </div>
